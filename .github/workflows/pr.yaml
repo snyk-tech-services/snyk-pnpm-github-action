@@ -1,0 +1,25 @@
+name: PNPM-PR-Snyk-Check
+
+on: 
+  pull_request:
+    types: [opened,reopened,synchronized]
+  push:
+    branches:
+      - master
+  
+jobs:
+  pnpm_snyk_check:
+    runs-on: ubuntu-latest
+    name: Snyk post processing
+    steps:
+    - uses: actions/checkout@v2
+    - name: Snyk API pnpm scan
+      id: pnpm-scan-api-tool
+      uses: snyk-tech-services/snyk-pnpm-github-action@master
+      with:
+        snykToken: ${{ secrets.snykToken }}
+        pnpmLockfilePath: "tests"
+        snykOrganization: playground
+        IncludeDev: false
+
+
