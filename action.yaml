@@ -1,0 +1,30 @@
+name: 'Snyk Pnpm Github Actions'
+description: 'Snyk test and PR check Pnpm projects'
+inputs:
+  snykToken:
+    description: 'Snyk token'
+    required: true
+    default: ''
+  snykOrganization:
+    description: 'Snyk organization'
+    required: true
+    default: ''
+  breakBuild:
+    description: 'Boolean flag to break build if new issue(s) - default true'
+    required: false
+    default: true
+  pnpmLockfilePath:
+    description: 'Path to pnpm lock file'
+    required: true
+    default: '.'
+  IncludeDev:
+    description: 'Include devDependencies when building the depGraph'
+    required: true
+    default: 'false'
+  branchPattern:
+    description: 'Branch pattern for which this logic should kick in'
+    required: false
+    default: ''
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
