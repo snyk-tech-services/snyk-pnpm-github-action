@@ -1,7 +1,6 @@
 const github = require('@actions/github')
 const core = require('@actions/core')
-import * as apiTool from '../../../snyk-pnpm-dephtree-api-tool';
-
+import * as apiTool from 'snyk-pnpm-deptree-api-tool'
 
 const runAction = async () => {
      
@@ -11,6 +10,7 @@ const runAction = async () => {
         const snykOrganization: string = core.getInput('snykOrganization');
         const path: string = core.getInput('pnpmLockfilePath') == '.' ? '/' : core.getInput('pnpmLockfilePath')
         const includeDev: string = core.getInput('includeDev');
+        const debug: boolean = core.getInput('debugMode')
 
         checkSnykToken(snykToken)
 
@@ -25,7 +25,7 @@ const runAction = async () => {
           includeDev,
         ];
 
-        const result = await apiTool.main();
+        const packageLock = await apiTool.main();
         
     } catch(err) {
         console.log("Failed Check !")
