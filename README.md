@@ -29,7 +29,6 @@ https://snyk.docs.apiary.io/#reference/test/dep-graph
 
 ## Example usage
 
-'''
 jobs:
   pnpm_snyk_check:
     runs-on: ubuntu-latest
@@ -44,4 +43,3 @@ jobs:
           pnpmLockfilePath: "./test/fixtures"
           snykOrganization: "playground"
           IncludeDev: "false"
-'''
