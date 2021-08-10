@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Snyk API pnpm scan
         id: pnpm-scan-api-tool
-        uses: snyk-tech-services/snyk-pnpm-github-action@master
+        uses: ./
         with:
           snykToken: ${{ secrets.snykToken }}
           pnpmLockfilePath: "./pnpm-sample"
