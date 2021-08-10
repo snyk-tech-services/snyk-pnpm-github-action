@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - master
-      - 
   
 jobs:
   pnpm_snyk_check:
@@ -19,7 +18,7 @@ jobs:
         uses: ./
         with:
           snykToken: ${{ secrets.snykToken }}
-          pnpmLockfilePath: "./pnpm-sample"
+          pnpmLockfilePath: "./test/fixtures"
           snykOrganization: "playground"
           IncludeDev: "false"
 
