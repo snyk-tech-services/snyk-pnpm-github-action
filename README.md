@@ -19,13 +19,29 @@ https://snyk.docs.apiary.io/#reference/test/dep-graph
 **Required** API snyk token. Can be found here: https://snyk.io/account/
 
 ## `Org`
-**Required** The name of the snyk organisation to run the test against. 
+**Required** The name of the snyk organization to run the test against.
 
 ## `pnpmLockfilePath`
-**Required** The root path of the project to test. 
+**Required** The root path of the project to test.
 
 ## `includeDev`
-**Required** Include dev dependencies while building the depGraph. True or false - default = false
+**Optional** Include dev dependencies while building the depGraph. True or false - default = false
 
 ## Example usage
 
+'''
+jobs:
+  pnpm_snyk_check:
+    runs-on: ubuntu-latest
+    name: Snyk post processing
+    steps:
+      - uses: actions/checkout@v2
+      - name: Snyk API pnpm scan
+        id: pnpm-scan-api-tool
+        uses: snyk-tech-services/snyk-pnpm-github-action@master
+        with:
+          snykToken: ${{ secrets.snykToken }}
+          pnpmLockfilePath: "./test/fixtures"
+          snykOrganization: "playground"
+          IncludeDev: "false"
+'''
