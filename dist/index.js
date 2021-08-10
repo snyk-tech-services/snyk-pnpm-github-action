@@ -24,6 +24,8 @@ const runAction = async () => {
             includeDev,
         ];
         const packageLock = await apiTool.main();
+        core.debug(packageLock);
+        console.log(JSON.stringify(packageLock));
     }
     catch (err) {
         console.log("Failed Check !");
