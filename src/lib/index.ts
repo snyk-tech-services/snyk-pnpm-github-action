@@ -30,7 +30,7 @@ const runAction = async () => {
         console.log(JSON.stringify(packageLock))
         
     } catch(err) {
-        console.log("Failed Check !")
+        console.log("Failed Check!")
         if(breakBuild) {
             core.setFailed(err)
         } else {
