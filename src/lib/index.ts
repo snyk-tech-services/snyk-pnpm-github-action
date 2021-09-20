@@ -27,7 +27,10 @@ const runAction = async () => {
 
         const packageLock = await apiTool.main();
         core.debug(packageLock)
-        console.log(JSON.stringify(packageLock))
+         
+        if (packageLock.exitCode == 1) {
+             exit 1
+        }
         
     } catch(err) {
         console.log("Failed Check !")
