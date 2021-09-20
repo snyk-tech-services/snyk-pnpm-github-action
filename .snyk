@@ -1,6 +1,32 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
-ignore: {}
+version: v1.19.0
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-ANSIREGEX-1583908:
+    - snyk-pnpm-deptree-api-tool > snyk-config > nconf > yargs > string-width > strip-ansi > ansi-regex:
+        reason: no upgrade available yet
+        expires: '2021-10-20T14:34:47.033Z'
+    - snyk-pnpm-deptree-api-tool > snyk-config > nconf > yargs > cliui > strip-ansi > ansi-regex:
+        reason: no upgrade available
+        expires: '2021-10-20T14:34:47.033Z'
+    - snyk-pnpm-deptree-api-tool > snyk-config > nconf > yargs > cliui > string-width > strip-ansi > ansi-regex:
+        reason: no upgrade available
+        expires: '2021-10-20T14:34:47.033Z'
+    - snyk-pnpm-deptree-api-tool > snyk-config > nconf > yargs > cliui > wrap-ansi > strip-ansi > ansi-regex:
+        reason: no upgrsde available
+        expires: '2021-10-20T14:34:47.033Z'
+    - snyk-pnpm-deptree-api-tool > babel-helpers > babel-template > babel-traverse > babel-code-frame > chalk > strip-ansi > ansi-regex:
+        reason: no upgrade available
+        expires: '2021-10-20T14:34:47.033Z'
+    - snyk-pnpm-deptree-api-tool > babel-helpers > babel-template > babel-traverse > babel-code-frame > chalk > has-ansi > ansi-regex:
+        reason: no upgrade
+        expires: '2021-10-20T14:34:47.033Z'
+    - snyk-pnpm-deptree-api-tool > snyk-config > nconf > yargs > cliui > wrap-ansi > string-width > strip-ansi > ansi-regex:
+        reason: no upgrade
+        expires: '2021-10-20T14:34:47.033Z'
+    - snyk-pnpm-deptree-api-tool > snyk > @snyk/inquirer > strip-ansi > ansi-regex:
+        reason: no upgrade
+        expires: '2021-10-20T14:34:47.033Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-LODASH-450202:
