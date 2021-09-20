@@ -26,9 +26,12 @@ const runAction = async () => {
         ];
 
         const packageLock = await apiTool.main();
-        core.debug(packageLock)
-        console.log(JSON.stringify(packageLock))
-        
+
+        if (packageLock.exitCode == 1) {
+            core.debug("Vulnerabilities found!")
+            core.setFailed("Vulnerabilities found!")
+        }
+
     } catch(err) {
         console.log("Failed Check!")
         if(breakBuild) {
