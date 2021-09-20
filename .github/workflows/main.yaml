@@ -20,6 +20,6 @@ jobs:
           snykToken: ${{ secrets.snykToken }}
           pnpmLockfilePath: "./test/fixtures"
           snykOrganization: "playground"
-          IncludeDev: "false"
+          IncludeDev: "true"
 
 
