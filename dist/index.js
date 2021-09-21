@@ -24,11 +24,14 @@ const runAction = async () => {
             includeDev,
         ];
         const packageLock = await apiTool.main();
-        core.debug(packageLock);
-        console.log(JSON.stringify(packageLock));
+        console.log(packageLock.exitCode);
+        console.debug(packageLock.exitCode);
+        if (packageLock.exitCode === 1) {
+            throw new Error("Vulnerabilities found!");
+        }
     }
     catch (err) {
-        console.log("Failed Check !");
+        console.log("Failed Check!");
         if (breakBuild) {
             core.setFailed(err);
         }
