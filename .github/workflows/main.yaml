@@ -17,7 +17,7 @@ jobs:
         id: pnpm-scan-api-tool
         uses: ./
         with:
-          snykToken: ${{ secrets.snykToken }}
+          snykToken: ${{ secrets.SNYK_TOKEN }}
           pnpmLockfilePath: "./test/fixtures"
           snykOrganization: "playground"
           IncludeDev: "true"
