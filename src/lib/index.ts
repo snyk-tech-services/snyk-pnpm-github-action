@@ -27,6 +27,10 @@ const runAction = async () => {
 
         const packageLock = await apiTool.main();
 
+        console.log(packageLock.exitCode)
+
+        console.debug(packageLock.exitCode)
+
         if (packageLock.exitCode === 1) {
             throw new Error("Vulnerabilities found!");
         }
