@@ -28,7 +28,7 @@ https://snyk.docs.apiary.io/#reference/test/dep-graph
 **Optional** Include dev dependencies while building the depGraph. True or false - default = false
 
 ## Example usage
-
+'''
 jobs:
   pnpm_snyk_check:
     runs-on: ubuntu-latest
@@ -43,3 +43,4 @@ jobs:
           pnpmLockfilePath: "./test/fixtures"
           snykOrganization: "playground"
           IncludeDev: "false"
+'''
