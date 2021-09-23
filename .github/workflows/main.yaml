@@ -18,7 +18,7 @@ jobs:
         uses: ./
         with:
           snykToken: ${{ secrets.SNYK_TOKEN }}
-          pnpmLockfilePath: "./test/fixtures"
+          pnpmLockfilePath: "./test/fixtures/pnpm_simple"
           snykOrganization: "playground"
           IncludeDev: "true"
 

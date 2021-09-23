@@ -8,8 +8,8 @@ Snyk helps you find, fix and monitor for known vulnerabilities in your dependenc
 
 ## Snyk snyk-pnpm-github-action
 GitHub action using snyk-pnpm-depTree-api-tool to convert a pnpm lockfile into a DepGraph and send it to the snyk API to scan
-https://github.com/snyk-tech-services/snyk-pnpm-depTree-api-tool
-https://snyk.docs.apiary.io/#reference/test/dep-graph
+  - https://github.com/snyk-tech-services/snyk-pnpm-depTree-api-tool
+  - https://snyk.docs.apiary.io/#reference/test/dep-graph
 
 
 
@@ -28,7 +28,7 @@ https://snyk.docs.apiary.io/#reference/test/dep-graph
 **Optional** Include dev dependencies while building the depGraph. True or false - default = false
 
 ## Example usage
-'''
+```
 jobs:
   pnpm_snyk_check:
     runs-on: ubuntu-latest
@@ -43,4 +43,4 @@ jobs:
           pnpmLockfilePath: "./test/fixtures"
           snykOrganization: "playground"
           IncludeDev: "false"
-'''
+```
