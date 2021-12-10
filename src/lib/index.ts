@@ -8,8 +8,8 @@ const runAction = async () => {
     try{
         const snykToken: string = core.getInput('snykToken');
         const snykOrganization: string = core.getInput('snykOrganization');
-        const path: string = core.getInput('pnpmLockfilePath') == '.' ? '/' : core.getInput('pnpmLockfilePath');
-        const manifestPath = core.getInput('manifestfilePath') == '.' ? '/' : core.getInput('manifestfilePath');
+        const path: string = core.getInput('pnpmLockfilePath');
+        const manifestPath: string = core.getInput('manifestfilePath');
         const includeDev: string = core.getInput('includeDev');
 
         checkSnykToken(snykToken)
