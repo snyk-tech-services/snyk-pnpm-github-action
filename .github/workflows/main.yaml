@@ -1,9 +1,15 @@
 name: PNPM-PR-Snyk-Check
 
-on: 
+on:
+  pull_request:
+    branches:
+      - fix/AddMonorepoSupportTest
+      - master
   push:
     branches:
-      - '*'
+      - fix/AddMonorepoSupportTest
+      - master
+  workflow_dispatch:
   
 jobs:
   pnpm_snyk_check:
@@ -16,7 +22,7 @@ jobs:
         uses: ./
         with:
           snykToken: ${{ secrets.SNYK_TOKEN }}
-          pnpmLockfilePath: "./test/fixtures/pnpm_simple"
+          pnpmLockfilePath: "."
           snykOrganization: "playground"
           IncludeDev: "true"
 

@@ -24,6 +24,9 @@ GitHub action using snyk-pnpm-depTree-api-tool to convert a pnpm lockfile into a
 ## `pnpmLockfilePath`
 **Required** The root path of the project to test.
 
+## `manifestfilePath`
+**Optional** The path to the manifest file (if different from the lockfile)
+
 ## `includeDev`
 **Optional** Include dev dependencies while building the depGraph. True or false - default = false
 

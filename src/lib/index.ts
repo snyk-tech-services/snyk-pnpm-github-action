@@ -8,9 +8,9 @@ const runAction = async () => {
     try{
         const snykToken: string = core.getInput('snykToken');
         const snykOrganization: string = core.getInput('snykOrganization');
-        const path: string = core.getInput('pnpmLockfilePath') == '.' ? '/' : core.getInput('pnpmLockfilePath')
+        const path: string = core.getInput('pnpmLockfilePath');
+        const manifestPath: string = core.getInput('manifestfilePath');
         const includeDev: string = core.getInput('includeDev');
-        const debug: boolean = core.getInput('debugMode')
 
         checkSnykToken(snykToken)
 
@@ -25,6 +25,11 @@ const runAction = async () => {
           includeDev,
         ];
 
+        if (manifestPath.length > 0) {
+            process.argv.push('--manifestFilePath')
+            process.argv.push(manifestPath)
+        }
+
         const packageLock = await apiTool.main();
 
         console.log(packageLock.exitCode)
@@ -36,7 +41,7 @@ const runAction = async () => {
         }
 
     } catch(err) {
-        console.log("Failed Check!")
+        console.log("Failed Check!!")
         if(breakBuild) {
             core.setFailed(err)
         } else {

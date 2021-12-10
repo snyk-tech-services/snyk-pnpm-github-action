@@ -17,6 +17,10 @@ inputs:
     description: 'Path to pnpm lock file'
     required: true
     default: '.'
+  manifestfilePath:
+    description: 'Path to manifest file'
+    required: false
+    default: ''
   IncludeDev:
     description: 'Include devDependencies when building the depGraph'
     required: true

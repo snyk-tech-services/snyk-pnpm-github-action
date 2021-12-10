@@ -10,6 +10,7 @@ const runAction = async () => {
         const snykToken = core.getInput('snykToken');
         const snykOrganization = core.getInput('snykOrganization');
         const path = core.getInput('pnpmLockfilePath') == '.' ? '/' : core.getInput('pnpmLockfilePath');
+        const manifestPath = core.getInput('manifestfilePath') == '.' ? '/' : core.getInput('manifestfilePath');
         const includeDev = core.getInput('includeDev');
         const debug = core.getInput('debugMode');
         checkSnykToken(snykToken);
@@ -22,6 +23,8 @@ const runAction = async () => {
             snykOrganization,
             '--includeDev',
             includeDev,
+            '--manifestFilePath',
+            manifestPath,
         ];
         const packageLock = await apiTool.main();
         console.log(packageLock.exitCode);
