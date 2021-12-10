@@ -1,11 +1,9 @@
 name: PNPM-PR-Snyk-Check
 
 on: 
-  pull_request:
-    types: [opened,reopened,synchronized]
   push:
     branches:
-      - master
+      - '*'
   
 jobs:
   pnpm_snyk_check:
