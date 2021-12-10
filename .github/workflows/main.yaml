@@ -1,11 +1,9 @@
 name: PNPM-PR-Snyk-Check
 
 on: 
-  pull_request:
-    types: [opened,reopened,synchronized]
   push:
     branches:
-      - master
+      - '*'
   
 jobs:
   pnpm_snyk_check:
@@ -20,6 +18,7 @@ jobs:
           snykToken: ${{ secrets.SNYK_TOKEN }}
           pnpmLockfilePath: "./test/fixtures/pnpm_simple"
           snykOrganization: "playground"
+          manifestfilePath: "./test/fixtures/pnpm_simple"
           IncludeDev: "true"
 
 
